@@ -1,6 +1,12 @@
 # Welcome to Create.ai 👋
 Create.ai is an AI Content Creation Platform which generates high quality content leveraging the power of AI.
 
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="./client/src/assets/preview/1.png" alt="" width="800"/>
+  <img src="./client/src/assets/preview/2.png" alt="" width="800"/>
+  <img src="./client/src/assets/preview/3.png" alt="" width="800"/>
+</div>
+
 ## Get Started
 1. Clone the repository
 ```bash
@@ -44,3 +50,6 @@ EMAIL_PASSWORD="your-email-app-password"
 ```bash
 npm run dev
 ```
+
+## API Documentation
+
