@@ -8,7 +8,7 @@ const ImageGenerationModel = async (prompt) => {
       accept: "application/json",
       "content-type": "application/json",
       authorization:
-        "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjFkYzI4MTk2Nzg1Y2IzZDZmMDQ2ZTEzZWNmMDI5OWQ1IiwiY3JlYXRlZF9hdCI6IjIwMjUtMDEtMTJUMjA6NTU6NDIuODU3NjY2In0.n_ciMnZiPg_P2VKX3laDh2w4GNaPTAR7DwWZOzliT9Y",
+        `Bearer ${process.env.MONSTER_API_AUTH_KEY}`,
     },
     data: {
       aspect_ratio: "square",
@@ -38,8 +38,7 @@ const fetchImageUrl = async (process_id) => {
     url: `https://api.monsterapi.ai/v1/status/${process_id}`,
     headers: {
       accept: "application/json",
-      authorization:
-        "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjFkYzI4MTk2Nzg1Y2IzZDZmMDQ2ZTEzZWNmMDI5OWQ1IiwiY3JlYXRlZF9hdCI6IjIwMjUtMDEtMTJUMjA6NTU6NDIuODU3NjY2In0.n_ciMnZiPg_P2VKX3laDh2w4GNaPTAR7DwWZOzliT9Y",
+      authorization: `Bearer ${process.env.MONSTER_API_AUTH_KEY}`,
     },
   };
   try {
