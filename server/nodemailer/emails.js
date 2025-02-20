@@ -66,7 +66,7 @@ const sendVerificationOtp = ({ email, otp }) => {
 <body>
 
     <div class="container">
-        <img src="https://via.placeholder.com/120x40?text=Your+Logo" alt="Logo" class="logo">
+        <img src=`` alt="Create.ai" class="logo">
         <h2>Verify Your Email</h2>
         <p>Use the OTP below to complete your verification process.</p>
         
@@ -74,16 +74,15 @@ const sendVerificationOtp = ({ email, otp }) => {
 
         <p>If you didn't request this, please ignore this email.</p>
 
-        <a href="#" class="verify-button">Verify Now</a>
 
-        <p class="footer">© 2025 Your Company. All rights reserved.</p>
+        <p class="footer">© 2025 Create.ai | All rights reserved.</p>
     </div>
 
 </body>
 </html>
 
         `
-    }
+}
     transporter.sendMail(mailOptions, (error, info) => {
         if(error) {
             console.log('Error sending Mail: ', error.message);

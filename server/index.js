@@ -10,6 +10,7 @@ import passport from "passport";
 import { GoogleSignIn } from "./controllers/AuthController.js";
 import session from "express-session";
 import UserRoutes from './routes/UserRoutes.js';
+import AiRoutes from './routes/AiRoutes.js'
 
 const app = express();
 
@@ -70,6 +71,7 @@ function(accessToken, refreshToken, profile, cb) {
 
 //ROUTES
 app.use('/api/user', UserRoutes);
+app.use('/api/ai', AiRoutes);
 
 app.get(
   "/auth/google",
@@ -81,7 +83,7 @@ app.get(
   passport.authenticate("google", { failureRedirect: `${process.env.CLIENT_URL}/sign-in` }),
   function (req, res) {
     
-    res.redirect("http://localhost:5173");
+    res.redirect(`${process.env.CLIENT_URL}/dashboard`);
   }
 );
 
@@ -92,7 +94,7 @@ app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: `${process.env.CLIENT_URL}/sign-in` }),
   function(req, res) {
     
-    res.redirect('http://localhost:5173');
+    res.redirect(`${process.env.CLIENT_URL}/dashboard`);
   });
 
 
