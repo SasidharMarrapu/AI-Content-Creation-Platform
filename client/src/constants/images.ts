@@ -9,6 +9,13 @@ import mail from "../assets/images/mail.png"
 import lock from "../assets/images/lock.png"
 import user_info from "../assets/images/user-info.png"
 import verify_otp_bg from "../assets/images/verifyotp-bg.png"
+import bird from "../assets/community-images/bird.png"
+import dog from "../assets/community-images/dog.png"
+import lizard from "../assets/community-images/lizard.png"
+import lion_eye from "../assets/community-images/lion_eye.png"
+import black_dog from "../assets/community-images/black_dog.png"
+import tiger from "../assets/community-images/tiger.png"
+import peacock from "../assets/community-images/peacock.png"
 
 export const images = {
     sparkles,
@@ -21,5 +28,12 @@ export const images = {
     mail,
     lock,
     user_info,
-    verify_otp_bg
+    verify_otp_bg,
+    bird,
+    dog,
+    lizard,
+    lion_eye,
+    black_dog,
+    tiger,
+    peacock
 }

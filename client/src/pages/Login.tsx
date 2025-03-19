@@ -1,38 +1,45 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { images } from "../constants/images";
 import axios from "axios";
 import { FormEvent, useState } from "react";
+import { ClipLoader } from "react-spinners";
 
 const SERVER_URL = import.meta.env.VITE_API_URL;
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
-  const handleLogin = async(event: FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLoading(true);
     try {
       const response = await axios.post(`${SERVER_URL}/api/user/login`, {
         email,
-        password
+        password,
       });
-    console.log(response.data);
-    setEmail('');
-    setPassword('');
+      console.log(response.data);
+      localStorage.setItem("token", response.data.token);
+      setEmail("");
+      setPassword("");
+      navigate("/dashboard");
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const handleGoogleSignIn = () => {
-    window.location.href = `${import.meta.env.VITE_API_URL}/auth/google`
-  }
+    window.location.href = `${import.meta.env.VITE_API_URL}/auth/google`;
+  };
   const handleGithubSignIn = () => {
-    window.location.href = `${import.meta.env.VITE_API_URL}/auth/github`
-  }
+    window.location.href = `${import.meta.env.VITE_API_URL}/auth/github`;
+  };
   const handleFacebookSignIn = () => {
-    window.location.href = `${import.meta.env.VITE_API_URL}/auth/facebook`
-  }
+    window.location.href = `${import.meta.env.VITE_API_URL}/auth/facebook`;
+  };
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
@@ -44,7 +51,10 @@ export default function Login() {
           </div>
           <div className="mt-10 w-full lg:w-[70%]">
             <h3 className="text-2xl font-semibold">Login to your account</h3>
-            <form onSubmit={handleLogin} className="mt-5 flex flex-col items-center gap-5">
+            <form
+              onSubmit={handleLogin}
+              className="mt-5 flex flex-col items-center gap-5"
+            >
               <div className="w-full flex items-center justify-center relative">
                 <img
                   src={images.mail}
@@ -73,8 +83,15 @@ export default function Login() {
                   value={password}
                 />
               </div>
-              <button type="submit"  className="text-xs font-medium text-white bg-black py-3 w-full rounded-lg shadow-sm cursor-pointer">
-                Login
+              <button
+                type="submit"
+                className="text-xs font-medium text-white bg-black py-3 w-full rounded-lg shadow-sm cursor-pointer"
+              >
+                {loading ? (
+                  <ClipLoader size={15} color="#fff" />
+                ) : (
+                  <h4 className="text-xs font-medium text-white">Login</h4>
+                )}
               </button>
             </form>
           </div>
@@ -83,15 +100,24 @@ export default function Login() {
               Choose your preferred method to continue
             </h3>
             <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-5 mt-5">
-              <div onClick={handleGoogleSignIn} className="flex items-center justify-center gap-1 w-full sm:w-36 h-12 rounded-xl border-1 border-neutral-400 cursor-pointer shadow">
+              <div
+                onClick={handleGoogleSignIn}
+                className="flex items-center justify-center gap-1 w-full sm:w-36 h-12 rounded-xl border-1 border-neutral-400 cursor-pointer shadow"
+              >
                 <img src={images.google} alt="google-icon" className="w-8" />
                 <h4 className="font-semibold text-sm">Google</h4>
               </div>
-              <div onClick={handleFacebookSignIn} className="flex items-center justify-center gap-2 w-full sm:w-36 h-12 rounded-xl border-1 border-neutral-400 cursor-pointer shadow">
+              <div
+                onClick={handleFacebookSignIn}
+                className="flex items-center justify-center gap-2 w-full sm:w-36 h-12 rounded-xl border-1 border-neutral-400 cursor-pointer shadow"
+              >
                 <img src={images.facebook} alt="google-icon" className="w-6" />
                 <h4 className="font-semibold text-sm">Facebook</h4>
               </div>
-              <div onClick={handleGithubSignIn} className="flex items-center justify-center gap-2 w-full sm:w-36 h-12 rounded-xl border-1 border-neutral-400 cursor-pointer shadow">
+              <div
+                onClick={handleGithubSignIn}
+                className="flex items-center justify-center gap-2 w-full sm:w-36 h-12 rounded-xl border-1 border-neutral-400 cursor-pointer shadow"
+              >
                 <img src={images.github} alt="google-icon" className="w-6" />
                 <h4 className="font-semibold text-sm">Github</h4>
               </div>

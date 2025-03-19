@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { images } from "../constants/images";
 import { useRef, useState } from "react";
 import axios from "axios";
-import Recommendations from "../components/Recommendations";
 import Loader from "../components/Loader";
 import { CircleLoader, ClipLoader, RingLoader } from "react-spinners";
 
@@ -14,7 +13,7 @@ export default function Register() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isRegistered, setIsRegistered] = useState<Boolean>(false);
-  const [otpSent, setOtpSent] = useState<Boolean>(true);
+  const [otpSent, setOtpSent] = useState<Boolean>(false);
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [loading, setLoading] = useState(false);
   const inputs = useRef([]);
@@ -76,7 +75,7 @@ export default function Register() {
         otp: Otp,
       });
       console.log(response.data);
-      navigate('/');
+      navigate('/dashboard');
       setLoading(false);
     } catch (error) {
       console.log(error.response.data.message);
@@ -104,7 +103,7 @@ export default function Register() {
                     onSubmit={handleSubmit}
                     className="mt-5 flex flex-col items-center gap-5"
                   >
-                    <div className="flex items-center justify-center gap-2">
+                    <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-2">
                       <div className="w-full flex items-center justify-center relative">
                         <img
                           src={images.user_info}
