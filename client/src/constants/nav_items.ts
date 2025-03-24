@@ -1,6 +1,6 @@
 import { Home, Image, MessageCircle, Settings, User, Video } from "lucide-react";
 
-type ComponentType = "Home" | "ImageGeneration" | "TextGeneration" | "VideoGeneration" | "Profile" | "Settings";
+export type ComponentType = "Home" | "ImageGeneration" | "TextGeneration" | "VideoGeneration" | "Profile" | "Settings";
 
 interface NavItem {
   id: number;
@@ -17,31 +17,31 @@ const nav_items:NavItem[] = [
         component: 'Home'
     },
     {
-        id: 1,
+        id: 2,
         icon: MessageCircle,
         name: 'Chat with AI',
         component: 'TextGeneration'
     },
     {
-        id: 1,
+        id: 3,
         icon: Image,
         name: 'Text to Image',
         component: 'ImageGeneration'
     },
     {
-        id: 1,
+        id: 4,
         icon: Video,
         name: 'Text to Video',
         component: 'VideoGeneration'
     },
     {
-        id: 1,
+        id: 5,
         icon: User,
         name: 'Profile',
         component: 'Profile'
     },
     {
-        id: 1,
+        id: 6,
         icon: Settings,
         name: 'Settings',
         component: 'Settings'

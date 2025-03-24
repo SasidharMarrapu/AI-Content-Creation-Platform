@@ -3,8 +3,8 @@ import { images } from "../constants/images";
 
 export default function ImageGeneration() {
   return (
-    <div className="w-full bg-neutral-50/75 px-5 py-20 flex flex-col items-center justify-center mt-10 gap-10">
-      <div className="flex items-center justify-center gap-1 rounded-full py-1.5 px-5 bg-white border border-neutral-200 shadow-xs">
+    <div className="w-full bg-neutral-50/75 px-5 py-10 flex flex-col items-center justify-center mt-10 gap-10">
+      <div className="flex items-center justify-center gap-1 rounded-full py-1.5 px-5 bg-white border border-neutral-200 shadow-xs mt-10">
         <h5>Best text to image generator</h5>
         <img src={images.stars} alt="Create.ai" className="w-5" />
       </div>

@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import AuthContext from "../context/AuthContext";
 import { images } from "../constants/images";
+import { Bell, Heart } from "lucide-react";
 
 export default function DashboardHeader() {
     const { user }:any = useContext(AuthContext);
@@ -12,13 +13,12 @@ export default function DashboardHeader() {
             <h2 className="text-md font-medium">Welcome Back,👋</h2>}
            </div>
 
-           <div>
-            <button className="bg-gradient-to-r from-blue-400  to-rose-500 text-white px-5 py-2 rounded-full flex items-center justify-center gap-1.5 cursor-pointer">
-                <div className="flex items-center justify-center gap-1">
-                <h5 className="text-xs">Buy Credits</h5>
-                <img src={images.stars} alt="" className="w-5" />
-                </div>
-            </button>
+           <div className="flex items-center justify-center gap-5">
+            <div className="flex items-center justify-center gap-5">
+                <Heart size={18} className="cursor-pointer" />
+                <Bell size={18} className="cursor-pointer" />
+            </div>
+            <img src="https://lh3.googleusercontent.com/a/ACg8ocI6oq7mtnPDRNWqFhdjwZeqrQC76IE2S5uMqQQ9bR_K1JC36A=s96-c-br100-rg-mo" alt="" className="w-8 cursor-pointer" />
            </div>
         </div>
     );

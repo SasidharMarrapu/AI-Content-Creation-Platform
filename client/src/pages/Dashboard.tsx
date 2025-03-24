@@ -1,18 +1,18 @@
-import { BiPlus } from "react-icons/bi";
 import DashboardHeader from "../components/DashboardHeader";
 import Sidebar from "../components/Sidebar";
-import { ImMagicWand } from "react-icons/im";
 import ImageGeneration from "../components/ImageGeneration";
-import { useState } from "react";
+import { useContext } from "react";
 import Settings from "../components/Settings";
 import Profile from "../components/Profile";
+import Home from "../components/Home";
+import ActiveComponentContext from "../context/ActiveComponentContext";
 
 export default function Dashboard() {
-    const [activeComponent, setActiveComponent] = useState("Home");
+    const { activeComponent, setActiveComponent } = useContext(ActiveComponentContext);
     return (
         <div className="w-full flex items-center justify-center">
             <div className="w-[25%]">
-            <Sidebar activeComponent={activeComponent} setActiveComponent={setActiveComponent} />
+            <Sidebar  />
             </div>
             <div className="w-full bg-white">
                 <DashboardHeader />
@@ -21,6 +21,7 @@ export default function Dashboard() {
                 {activeComponent === "ImageGeneration" && <ImageGeneration />}
                 {activeComponent === "Profile" && <Profile />}
                 {activeComponent === "Settings" && <Settings />}
+                {activeComponent === "Home" && <Home />}
                 </div>
             </div>
         </div>

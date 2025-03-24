@@ -16,6 +16,12 @@ import lion_eye from "../assets/community-images/lion_eye.png"
 import black_dog from "../assets/community-images/black_dog.png"
 import tiger from "../assets/community-images/tiger.png"
 import peacock from "../assets/community-images/peacock.png"
+import banner from "../assets/images/banner.png"
+import email_template from "../assets/images/email_template.png"
+import resume_template from "../assets/images/resume_template.png"
+import blog_template from "../assets/images/blog_template.png"
+import social_media_template from "../assets/images/social_media_template.png"
+import email from "../assets/images/email.png"
 
 export const images = {
     sparkles,
@@ -35,5 +41,11 @@ export const images = {
     lion_eye,
     black_dog,
     tiger,
-    peacock
+    peacock,
+    banner,
+    email_template,
+    resume_template,
+    blog_template,
+    social_media_template,
+    email
 }

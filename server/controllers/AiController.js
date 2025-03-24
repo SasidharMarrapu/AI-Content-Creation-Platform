@@ -35,4 +35,21 @@ const fetchImage = async(req,res) => {
     }
 }
 
-export { GenerateText, GenerateImage, fetchImage };
+const GenerateEmail = async(req,res) => {
+    try {
+        const { prompt, keywords, tone } = req.query;
+
+        if(!prompt || !keywords || !tone){
+            throw new Error("All Fields Are Required");
+        }
+
+        const finalPrompt = prompt + keywords + tone;
+        const generateEmail = await TextGenerationModel.generateContent(finalPrompt);
+        
+        return res.status(200).json({ success: true, result: generateEmail.response.text() });
+    } catch (error) {
+        return res.status(500).json({ success: false, error: error.message });
+    }
+}
+
+export { GenerateText, GenerateImage, fetchImage, GenerateEmail };
