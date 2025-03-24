@@ -4,6 +4,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import AiEmailWriter from "../pages/AiEmailWriter";
+import AiBlogWriter from "../pages/AiBlogWriter";
 
 export default function Routers() {
     return (
@@ -13,6 +14,7 @@ export default function Routers() {
             <Route path="/sign-in" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/ai-email-writer" element={<AiEmailWriter />} />
+            <Route path="/dashboard/ai-blog-writer" element={<AiBlogWriter />} />
         </Routes>
     )
 }

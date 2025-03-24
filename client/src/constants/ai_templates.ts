@@ -10,7 +10,7 @@ export interface Template {
 const Ai_Templates:Template[] = [
     {
         id: 1,
-        title: "AI Business Email Writer",
+        title: "AI Email Generator",
         image: images.email_template,
         link: '/dashboard/ai-email-writer'
     },
@@ -22,7 +22,7 @@ const Ai_Templates:Template[] = [
     },
     {
         id: 3,
-        title: "AI Blog Writer",
+        title: "AI Blog Generator",
         image: images.blog_template,
         link: '/dashboard/ai-blog-writer'
     },
