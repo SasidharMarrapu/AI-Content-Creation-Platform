@@ -49,7 +49,7 @@ passport.use(
 passport.use(
   new GithubStartegy(
     {
-      clientID: process.env.GITHUB_CLIENT_ID,
+      // clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       callbackURL: 'http://localhost:8000/auth/github/callback',
     },
