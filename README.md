@@ -10,7 +10,7 @@ Create.ai is an AI Content Creation Platform which generates high quality conten
 ## Get Started
 1. Clone the repository
 ```bash
-git clone https://github.com/LEELAMANOHARGUDIVADA/create.ai-web.git
+git clone https://github.com/SasidharMarrapu/create.ai-web.git
 ```
 
 2. Navigate to client directory and install dependencies
