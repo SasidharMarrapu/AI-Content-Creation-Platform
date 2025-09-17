@@ -1,5 +1,8 @@
+//import dotenv from "dotenv";
+//dotenv.config();
 import dotenv from "dotenv";
-dotenv.config();
+dotenv.config({ path: "./touch.env" });
+// ...existing code...
 import express from "express";
 import cors from "cors";
 import connectDB from "./db/connectdb.js";
@@ -46,10 +49,20 @@ passport.use(
   )
 );
 
+if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
+  throw new Error('Missing Google OAuth environment variables!');
+}
+if (!process.env.GITHUB_CLIENT_ID || !process.env.GITHUB_CLIENT_SECRET) {
+  throw new Error('Missing GitHub OAuth environment variables!');
+}
+if (!process.env.FACEBOOK_APP_ID || !process.env.FACEBOOK_APP_SECRET) {
+  throw new Error('Missing Facebook OAuth environment variables!');
+}
+
 passport.use(
   new GithubStartegy(
     {
-      // clientID: process.env.GITHUB_CLIENT_ID,
+      clientID: process.env.GITHUB_CLIENT_ID, // <-- Add this line
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       callbackURL: 'http://localhost:8000/auth/github/callback',
     },
